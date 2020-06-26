@@ -40,12 +40,12 @@ spec:
             secretName: asterisk-config
       containers:
         - name: asterisk
-          image: cycoresystems/asterisk:16.6.1
+          image: ituyakbayev/asterisk:16.8c3
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
         - name: config
-          image: cycoresystems/asterisk-config:v0.9.1
+          image: ituyakbayev/asterisk-config:v0.9.3
           volumeMounts:
             - name: config
               mountPath: /etc/asterisk
@@ -53,7 +53,7 @@ spec:
               mountPath: /source
           env:
             - name: CLOUD
-              value: gcp
+              value: ""
             - name: ARI_APPLICATION
               value: demo
             - name: ARI_USERNAME

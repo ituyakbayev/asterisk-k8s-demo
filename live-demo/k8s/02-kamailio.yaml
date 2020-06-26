@@ -33,17 +33,17 @@ spec:
       labels:
         component: kamailio
     spec:
-      nodeSelector:
-        cloud.google.com/gke-nodepool: kamailio
+#      nodeSelector:
+#        cloud.google.com/gke-nodepool: kamailio
       hostNetwork: true
       volumes:
         - name: config
       containers:
         - name: kamailio
-          image: cycoresystems/kamailio
+          image: ituyakbayev/kamailio
           env:
             - name: CLOUD
-              value: gcp
+              value: ""
           volumeMounts:
             - name: config
               mountPath: /data/kamailio
@@ -51,7 +51,7 @@ spec:
           image: cycoresystems/rtpproxy
           env:
             - name: CLOUD
-              value: gcp
+              value: ""
         - name: dispatchers
           image: cycoresystems/dispatchers
           command:
